@@ -40,7 +40,8 @@ public class PlayService {
             return GameResults.DRAW;
         } else if (secondPlayerOption.equals(GameOptions.SCISSORS)) {
             return GameResults.FIRST_PLAYER_WIN;
+        } else {
+            return GameResults.SECOND_PLAYER_WIN;
         }
-        return null;
     }
 }

@@ -35,4 +35,10 @@ public class PlayServiceTest {
         Assert.assertEquals(GameResults.FIRST_PLAYER_WIN,playService.calculateResult(secondPlayerOption));
     }
 
+    @Test
+    public void shouldReturnSecondUserWin_WhenSecondPlayerGamesPaper() {
+        GameOptions secondPlayerOption = GameOptions.PAPER;
+        Assert.assertEquals(GameResults.SECOND_PLAYER_WIN,playService.calculateResult(secondPlayerOption));
+    }
+
 }

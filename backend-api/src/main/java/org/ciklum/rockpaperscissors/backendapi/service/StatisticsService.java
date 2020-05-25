@@ -41,6 +41,8 @@ public class StatisticsService {
         totalRounds+=1;
         if (roundDto.getGameResult().equals(GameResults.FIRST_PLAYER_WIN)) {
             totalFirstWin+=1;
+        } else if (roundDto.getGameResult().equals(GameResults.SECOND_PLAYER_WIN)) {
+            totalSecondWin+=1;
         }
 
     }

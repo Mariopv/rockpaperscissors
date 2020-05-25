@@ -36,8 +36,10 @@ public class PlayService {
     }
 
     GameResults calculateResult(GameOptions secondPlayerOption) {
-        if(secondPlayerOption.equals(GameOptions.ROCK)) {
+        if (secondPlayerOption.equals(GameOptions.ROCK)) {
             return GameResults.DRAW;
+        } else if (secondPlayerOption.equals(GameOptions.SCISSORS)) {
+            return GameResults.FIRST_PLAYER_WIN;
         }
         return null;
     }

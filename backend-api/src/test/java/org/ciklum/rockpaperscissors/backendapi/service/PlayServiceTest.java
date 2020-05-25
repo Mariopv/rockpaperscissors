@@ -29,4 +29,10 @@ public class PlayServiceTest {
         Assert.assertEquals(GameResults.DRAW,playService.calculateResult(secondPlayerOption));
     }
 
+    @Test
+    public void shouldReturnFirstUserWin_WhenSecondPlayerGamesScissors() {
+        GameOptions secondPlayerOption = GameOptions.SCISSORS;
+        Assert.assertEquals(GameResults.FIRST_PLAYER_WIN,playService.calculateResult(secondPlayerOption));
+    }
+
 }

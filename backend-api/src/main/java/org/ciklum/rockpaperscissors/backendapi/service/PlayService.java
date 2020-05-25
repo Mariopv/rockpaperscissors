@@ -30,7 +30,7 @@ public class PlayService {
     }
 
     RoundDto playRound() {
-        GameOptions secondPlayerOption = GameOptions.ROCK;
+        GameOptions secondPlayerOption = GameOptions.getRandom();
         GameResults gameResult = calculateResult(secondPlayerOption);
         return new RoundDto(firstPlayerOption,secondPlayerOption,gameResult);
     }

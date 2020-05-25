@@ -3,14 +3,17 @@ package org.ciklum.rockpaperscissors.backendapi.service;
 import org.ciklum.rockpaperscissors.backendapi.model.RoundDto;
 import org.ciklum.rockpaperscissors.backendapi.model.GameResults;
 import org.ciklum.rockpaperscissors.backendapi.model.GameOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PlayService {
 
-    private final StatisticsService statisticsService;
+    private static final Logger LOG = LoggerFactory.getLogger(PlayService.class);
 
+    private final StatisticsService statisticsService;
     private final GameOptions firstPlayerOption = GameOptions.ROCK;
 
     /**
@@ -25,6 +28,7 @@ public class PlayService {
 
     public RoundDto getRound() {
         RoundDto roundDto = playRound();
+        LOG.info("Round played: {}, {}, {}",roundDto.getFirstPlayer(),roundDto.getSecondPlayer(),roundDto.getGameResult());
         this.statisticsService.updateStatistics(roundDto);
         return roundDto;
     }

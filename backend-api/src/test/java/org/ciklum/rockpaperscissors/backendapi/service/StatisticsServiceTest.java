@@ -24,4 +24,12 @@ public class StatisticsServiceTest {
         Assert.assertEquals(this.statisticsService.getTotalRounds(),1);
     }
 
+    @Test
+    public void shouldIncrementTotalFirstWin_WhenUpdateStatistics() {
+        RoundDto roundDto = new RoundDto(GameOptions.ROCK,GameOptions.SCISSORS, GameResults.FIRST_PLAYER_WIN);
+        this.statisticsService.updateStatistics(roundDto);
+
+        Assert.assertEquals(this.statisticsService.getTotalFirstWin(),1);
+    }
+
 }

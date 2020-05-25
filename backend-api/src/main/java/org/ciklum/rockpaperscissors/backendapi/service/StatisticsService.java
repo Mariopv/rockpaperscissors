@@ -1,5 +1,6 @@
 package org.ciklum.rockpaperscissors.backendapi.service;
 
+import org.ciklum.rockpaperscissors.backendapi.model.GameOptions;
 import org.ciklum.rockpaperscissors.backendapi.model.GameResults;
 import org.ciklum.rockpaperscissors.backendapi.model.RoundDto;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,9 @@ public class StatisticsService {
 
     public void updateStatistics(RoundDto roundDto) {
         totalRounds+=1;
+        if (roundDto.getGameResult().equals(GameResults.FIRST_PLAYER_WIN)) {
+            totalFirstWin+=1;
+        }
 
     }
 }

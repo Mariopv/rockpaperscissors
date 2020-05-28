@@ -13,4 +13,16 @@ describe('<Button /> tests', () => {
         expect(container.firstChild).toMatchSnapshot()
     })
 
+    it("should render the button with some text", () => {
+        // Arrange
+        const text = "Play round"
+
+        // Act
+        const { getByText, container } = render(<Button>{text}</Button>)
+
+        // Assert
+        expect(container).toMatchSnapshot()
+        getByText(text)
+    })
+
 })

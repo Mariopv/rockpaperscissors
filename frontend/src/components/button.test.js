@@ -1,6 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render,fireEvent } from '@testing-library/react'
 import {Button} from "./button";
 
 describe('<Button /> tests', () => {
@@ -23,6 +23,19 @@ describe('<Button /> tests', () => {
         // Assert
         expect(container).toMatchSnapshot()
         getByText(text)
+    })
+
+    it('should call the click callback handler', () => {
+        // Arrange
+        const content = "Play Round"
+        const onClick = jest.fn()
+
+        // Act
+        const { getByText } = render(<Button onClick={onClick}>{content}</Button>)
+        fireEvent.click(getByText(content))
+
+        // Assert
+        expect(onClick).toHaveBeenCalledTimes(1)
     })
 
 })

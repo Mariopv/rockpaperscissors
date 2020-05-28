@@ -1,0 +1,13 @@
+body {
+    padding: 5px
+}
+
+.button {
+    height: 25px;
+    margin-right: 25px;
+    font-size: small;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+}

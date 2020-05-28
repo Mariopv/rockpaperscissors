@@ -11,3 +11,20 @@ body {
     text-align: center;
     width: 100px;
 }
+
+.column1 {
+    width: 22%;
+    text-align:left;
+}
+
+.column2 {
+    width: 28%;
+    text-align:left;
+    padding-left: 10px;
+}
+
+.column3 {
+    width: 50%;
+    text-align:left;
+    padding-left: 10px;
+}

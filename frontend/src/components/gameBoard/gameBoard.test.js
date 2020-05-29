@@ -49,6 +49,24 @@ describe('<GameBoard /> tests', () => {
 
     })
 
+    it("should handle exception when play round error", async () => {
+        // Arrange
+        const component = shallow(<GameBoard/>);
+        component.setState({
+            localRoundsCounter: 0,
+            rounds: []
+        });
+
+        fetch.mockReject(new Error('fake error message'))
+
+        // Act
+        await component.instance().playRound();
+
+        // Assert
+        const spy = jest.spyOn(component.instance(),'handleApiError');
+        expect(spy).toBeCalled;
+
+    })
 
 })
 

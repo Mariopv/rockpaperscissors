@@ -12,6 +12,42 @@ body {
     width: 100px;
 }
 
+.game-board {
+    margin-left: 25px;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.game-table {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.game-statistics {
+    margin-left: 100px;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    margin-left: 25px;
+}
+
+.stats-header {
+    margin-bottom: 10px;
+    font-size: larger;
+}
+
+.table {
+    display: table;
+    width: 400px;
+}
+
 .column1 {
     width: 22%;
     text-align:left;

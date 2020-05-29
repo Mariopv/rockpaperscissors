@@ -16,6 +16,18 @@ export default class GameBoard extends React.Component {
         })
     }
 
+    async playRound() {
+        const response = await fetch('api/play/round');
+        const data = await response.json();
+        const incremLocalRoundsCounter = this.state.localRoundsCounter + 1;
+        this.setState({localRoundsCounter: incremLocalRoundsCounter});
+        const rounds = this.state.rounds.slice();
+        rounds.push(data);
+        this.setState({rounds: rounds})
+
+    }
+
+
     render() {
     }
 

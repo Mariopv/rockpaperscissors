@@ -1,4 +1,12 @@
 import * as React from 'react'
+import SockJsClient from 'react-stomp';
+
+function WebSocketStatistics(props){
+    return (
+        <SockJsClient url='http://localhost:8080/api/game' topics={['/statistics']}
+                      onMessage={(stats) => props.onMessage(stats)} />
+    )
+}
 
 export default class GameStatistics extends React.Component {
     constructor(props) {
@@ -22,6 +30,7 @@ export default class GameStatistics extends React.Component {
         const statsDraw = statistics[3];
         return(
             <div className="game-statistics">
+                <WebSocketStatistics onMessage={(s) => this.setStatistics(s)}/>
                 <div className="stats-header">Global Statistics Info</div>
                 <div className="totalRounds">Total played rounds:  {statsRounds}</div>
                 <div className="totalFirst">Total 1st player won: {statsFirstWon}</div>

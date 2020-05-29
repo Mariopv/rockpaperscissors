@@ -3,6 +3,7 @@ import './../../config/setupEnzyme'
 import './../../config/setupJest'
 import {shallow} from 'enzyme';
 import GameBoard from './gameBoard'
+import renderer from 'react-test-renderer'
 
 describe('<GameBoard /> tests', () => {
 
@@ -65,6 +66,15 @@ describe('<GameBoard /> tests', () => {
         // Assert
         const spy = jest.spyOn(component.instance(),'handleApiError');
         expect(spy).toBeCalled;
+
+    })
+
+    it("should render Game Board", async () => {
+        // Act
+        const tree = renderer.create(<GameBoard />).toJSON();
+
+        //Assert
+        expect(tree).toMatchSnapshot()
 
     })
 
